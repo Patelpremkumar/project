@@ -1,0 +1,25 @@
+class Ticket:
+    def __init__(self, name, age, destination):
+        self.name = name
+        self.age = age
+        self.destination = destination
+
+class TicketReservationSystem:
+    def __init__(self):
+        self.tickets = []
+
+    def reserve_ticket(self, name, age, destination):
+        ticket = Ticket(name, age, destination)
+        self.tickets.append(ticket)
+        print(f"Ticket reserved for {name} to {destination}.")
+
+    def display_tickets(self):
+        print("Tickets Reserved:")
+        for idx, ticket in enumerate(self.tickets, start=1):
+            print(f"{idx}. Name: {ticket.name}, Age: {ticket.age}, Destination: {ticket.destination}")
+
+# Example usage:
+reservation_system = TicketReservationSystem()
+reservation_system.reserve_ticket("John", 30, "New York")
+reservation_system.reserve_ticket("Alice", 25, "Paris")
+reservation_system.display_tickets()
